@@ -1,6 +1,6 @@
 # CS_522_HW3
 
-#### How to Run 
+#### How to Run: 
 Please download and open the sim.html in any browser.
 
 #### Experiment Description:
