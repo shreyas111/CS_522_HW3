@@ -154,7 +154,6 @@
         .append('text')
         .attr('x', 150)
         .attr('y', 299)
-        //.attr('rotate',90)
         .text('ID (bits)');
 
         d3.select('#svggraph2').append('g')
@@ -166,7 +165,6 @@
         .append('text')
         .attr('x', 150)
         .attr('y', 299)
-        //.attr('rotate',90)
         .text('ID (bits)');
 
         d3.select('#svggraph3').append('g')
@@ -178,7 +176,6 @@
         .append('text')
         .attr('x', 150)
         .attr('y', 299)
-        //.attr('rotate',90)
         .text('ID (bits)');
 
     }
@@ -193,14 +190,12 @@
         .append('text')
         .attr('x', 1)
         .attr('y', 150)
-        //.attr('rotate',-90)
         .text('Time');
 
         d3.select('#svggraph').append('g')
         .append('text')
         .attr('x', 1)
         .attr('y', 162)
-        //.attr('rotate',90)
         .text('(sec)');
 
 
@@ -213,14 +208,12 @@
         .append('text')
         .attr('x', 1)
         .attr('y', 150)
-        //.attr('rotate',90)
         .text('MT');
 
         d3.select('#svggraph2').append('g')
         .append('text')
         .attr('x', 1)
         .attr('y', 162)
-        //.attr('rotate',90)
         .text('(sec)');
 
         d3.select('#svggraph3').append('g')
@@ -232,15 +225,8 @@
         .append('text')
         .attr('x', 1)
         .attr('y', 150)
-        //.attr('rotate',90)
         .text('TP');
 
-        //d3.select('#svggraph3').append('g')
-        //.append('text')
-        //.attr('x', 1)
-        //.attr('y', 162)
-        ////.attr('rotate',90)
-        //.text('b/sec');
     }
 
  
@@ -453,120 +439,6 @@
             highlightNums.push(b);
         }
 
-        /*for (var k = 0; k < 4 ; k++)
-        {
-            var a = ranNums[0];
-            if (a > 3) {
-                b = a - 4;
-            }
-            else if (a <= 3) {
-                b = a + 4;
-            }
-            for (var i = 0; i < ranNums.length; i++) {
-                if (ranNums[i] == a) {
-
-                    ranNums.splice(i, 1);
-                }
-                if (ranNums[i] == b) {
-                    ranNums.splice(i, 1);
-                }
-            }
-            highlightNums.push(a);
-            highlightNums.push(b);
-        }*/
-        /*for (var k = 0; k < 4 ; k++)
-        {
-            var a;
-            if (k == 0)
-            {
-                a = ranNums[0];
-                if (a > 3) {
-                    b = a - 4;
-                }
-                else if (a <= 3) {
-                    b = a + 4;
-                }
-            }
-            else
-            {
-                a = highlightNums[highlightNums.length - 1];
-                if (a > 4 && a <=7) {
-                    a = a - 5;
-                    for (var i = 0; i < highlightNums.length; i++)
-                    {
-                        if(a==highlightNums[i])
-                        {
-                            a = highlightNums[highlightNums.length - 1];
-                            a = a - 3;
-                            break;
-                        }
-                    }
-
-                    if (a > 3) {
-                        b = a - 4;
-                    }
-                    else if (a <= 3) {
-                        b = a + 4;
-                    }
-                }
-                else if (a <= 2) {
-                    a = a + 5;
-                    for (var i = 0; i < highlightNums.length; i++) {
-                        if (a == highlightNums[i]) {
-                            a=highlightNums[highlightNums.length - 1];
-                            a = a + 3;
-                            break;
-                        }
-                    }
-                    if (a > 3)
-                    {
-                        b = a - 4;
-                    }
-                    else if (a <= 3) {
-                        b = a + 4;
-                    }
-                }
-                else if(a==4)
-                {
-                    a = a + 3;
-                    for (var i = 0; i < highlightNums.length; i++) {
-                        if (a == highlightNums[i]) {
-                            a = 4;
-                            a = a - 3;
-                            break;
-                        }
-                    }
-                    if (a > 3) {
-                        b = a - 4;
-                    }
-                    else if (a <= 3) {
-                        b = a + 4;
-                    }
-                }
-                else if(a==3)
-                {
-                    a = a + 3;
-                    for (var i = 0; i < highlightNums.length; i++) {
-                        if (a == highlightNums[i]) {
-                            a = 3;
-                            a = a - 3;
-                            break;
-                        }
-                    }
-                    if (a > 3) {
-                        b = a - 4;
-                    }
-                    else if (a <= 3) {
-                        b = a + 4;
-                    }
-                }
-            }
-
-            highlightNums.push(a);
-            highlightNums.push(b);
-        }*/
-
-        //console.log('highlight Numbers ' + highlightNums);
     }
 
     highlightCircle();
@@ -584,59 +456,10 @@
     var XY = [];
     var x2 = [];
     var y2 = [];
-    //y= a+bx;
     var coefa;
     var coefb;
    
     startTime = new Date();
-    // TIme is X and IDs is Y
-    /*function calculateCoefficients1() {
-        sumX = 0;
-        sumY = 0;
-        sumXY = 0;
-        x2 = [];
-        y2 = [];
-        XY = [];
-        sumX2 = 0;
-        sumY2 = 0;
-        sumXY = 0;
-
-        for (var i = 0; i < nos.length; i++) {
-
-            sumX = sumX + times[i];
-            sumY = sumY + distances[i];
-            x2.push(times[i] * times[i]);
-            y2.push(IDs[i] * IDs[i]);
-            XY.push(times[i] * IDs[i]);
-
-        }
-        console.log('sum x: ' + sumX);
-        console.log('sum y: ' + sumY);
-
-        console.log('x2: ' + x2);
-        console.log('x2 length ', x2.length)
-        console.log('y2: ' + y2);
-        console.log('y2 length ', y2.length)
-        console.log('xy: ' + XY);
-        console.log('xy length ', XY.length)
-
-        for (var i = 0; i < nos.length; i++)
-        {
-            sumX2 = sumX2 + x2[i];
-            sumY2 = sumY2 + y2[i];
-            sumXY = sumXY + XY[i];
-        }
-        console.log('sum x2 ' + sumX2);
-        console.log('sum y2 ' + sumY2);
-        console.log('sum XY ' + sumXY);
-
-        console.log('n is ' + times.length);
-        coefa = ((sumY * sumX2) - (sumX * sumXY)) / ((times.length * sumX2) - Math.pow(sumX, 2));
-        console.log('coef a is: ' + coefa);
-        coefb = ((times.length * sumXY) - (sumX * sumY)) / ((times.length * sumX2) - Math.pow(sumX, 2));
-        console.log('coefb is: ' + coefb);
-    }*/
-
      // Time is Y and IDs is X;
     function calculateCoefficients2() {
         /*console.log('times: ' + times);
@@ -688,45 +511,9 @@
         coefb = ((nos.length - 1 * sumXY) - (sumX * sumY)) / ((nos.length - 1 * sumX2) - Math.pow(sumX, 2));
         console.log('coef b is: ' + coefb);
 
-        /*var csvRows1 = [];
-        csvRows1.push("times square", ',');
-        csvRows1.push("ID square", ',');
-        csvRows1.push("times * ID", ',');
-
-        for (var i = 0, l = x2.length; i < l; ++i) {
-            csvRows1.push(y2[i], ',');
-            csvRows1.push(x2[i], ',');
-            csvRows1.push(XY[i], '\n')
-        }
-        var csvString1 = csvRows1.join("");
-        var a1 = document.createElement('a1');
-        a1.href = 'data:attachment/csv,' + encodeURIComponent(csvString1);
-        a1.target = '_blank';
-        a1.download = 'myFile1.csv';*/
-
-        /*var csvRows = [];
-        csvRows.push("Sum times", ',');
-        csvRows.push("Sum ID", ',');
-        csvRows.push("sum times square", ',');
-        csvRows.push("sum ID square", ',');
-        csvRows.push("sum times x ID ", '\n');
-
-        for (var i = 0, l = 1; i < l; ++i) {
-            csvRows.push(sumX, ',');
-            csvRows.push(sumY, ',');
-            csvRows.push(sumY2, ',');
-            csvRows.push(sumX2, ',');
-            csvRows.push(sumXY, '\n');
-        }
-
-        var csvString = csvRows.join("");
-        var a = document.createElement('a');
-        a.href = 'data:attachment/csv,' + encodeURIComponent(csvString);
-        a.target = '_blank';
-        a.download = 'myFile.csv';*/
     }
-     //y=a+bx
-    //Y is Time and X ID
+    // y=a+bx
+    // Y is Time and X ID
     function calculateCoefficients(IDs, times, count) {
         console.log('times: ' + times);
         console.log('IDs: ' + IDs);
@@ -821,7 +608,7 @@
             var a = document.createElement('a');
             a.href = 'data:attachment/csv,' + encodeURIComponent(csvString);
             a.target = '_blank';
-            a.download = 'myFile.csv';
+            a.download = 'DataDump.csv';
 
             document.body.appendChild(a);
             a.click();
@@ -894,26 +681,14 @@
                 var x1 = coordinate.cx;
                 var x2 = d3.select('#circle' + highlightNums[count]).attr('cx');
                 //var x12 = d3.select('#circle' + highlightNums[count - 1]).attr('cx');
-                //console.log('x2 = ' + x2);
-                
-
-                 //console.log('y2 = ' + y2);
-                 //console.log('y1 = ' + y1);
-                 //console.log('y12 = ' + y12);
-
-                 //console.log('x2 = ' + x2)
-                 //console.log('x1 = ' + x1);
-                 //console.log('x12 = ' + x12);
-           
 
                 var yDist = Math.pow(y2 - y1, 2);
                 var xDist = Math.pow(x2 - x1, 2);
                 distance = Math.sqrt(yDist + xDist);
 
                 distances.push(distance);
-                //d3.select('#distanceToolTipDiv').text('Distance: ' + distance);
                 times.push(elapsedTime);
-                //d3.select('#timeToolTipDiv').text('Time: ' + time);
+                
               
                 calculateID();
                 IDs.push(ID);
@@ -927,14 +702,6 @@
                 .attr('r', 5)
                 .attr('fill', colors[ranNums1[loop]]);
             }
-
-
-            /*if (count != 0) {
-                    var x12 = d3.select('#circle' + highlightNums[count - 1]).attr('cx');
-                    //console.log('x2 = ' + x2);
-                    console.log('x12 = ' + x12);
-            }*/
-
 
                 coordinate = d3.mouse(svg.node());
                 //console.log('coordinate is: ' + coordinate);
@@ -986,7 +753,6 @@
 
         We = 2 * circleRadius;
         IDe = Math.log2((De / We) + 1);
-
         //console.log('IDe is ' + IDe);
 
     }
